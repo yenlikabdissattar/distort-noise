@@ -172,7 +172,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 /* BAND STRIP */
 .band-strip { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
 .band-tile { position:relative; aspect-ratio:1; overflow:hidden; background:var(--gray); cursor:pointer; }
-.band-tile img { width:100%; height:100%; object-fit:cover; filter:brightness(0.35) contrast(1.2) grayscale(0.4); transition:filter 0.3s; }
+.band-tile img { width:100%; height:100%; object-fit:cover; filter:brightness(0.62) contrast(1.1) grayscale(0.25); transition:filter 0.3s; }
 .band-tile:active img { filter:brightness(0.5) contrast(1.2); }
 .band-tile-info { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:12px; background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 60%); }
 .band-tile-num { font-size:10px; letter-spacing:0.1em; color:var(--red); margin-bottom:3px; }
@@ -212,7 +212,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 /* ── BANDS PAGE ── */
 .band-card { margin:0 18px 3px; background:var(--gray); overflow:hidden; }
 .band-card-hero { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; }
-.band-card-hero img { width:100%; height:100%; object-fit:cover; filter:brightness(0.45) contrast(1.2) grayscale(0.3); }
+.band-card-hero img { width:100%; height:100%; object-fit:cover; filter:brightness(0.62) contrast(1.1) grayscale(0.2); }
 .band-card-hero-text { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:16px; background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 60%); }
 .bc-num { font-size:10px; letter-spacing:0.1em; color:var(--red); }
 .bc-name { font-family:var(--font-d); font-size:32px; line-height:0.9; }
@@ -229,9 +229,9 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .merch-card { background:var(--gray); overflow:hidden; }
 .merch-img { width:100%; aspect-ratio:1; object-fit:cover; display:block; filter:brightness(0.9); }
 .merch-body { padding:10px 12px 14px; }
-.merch-band { font-size:10px; letter-spacing:0.1em; color:var(--red); text-transform:uppercase; margin-bottom:2px; }
-.merch-name { font-family:var(--font-d); font-size:18px; letter-spacing:0.03em; margin-bottom:2px; }
-.merch-type { font-size:10px; letter-spacing:0.06em; color:var(--dimgray); text-transform:uppercase; margin-bottom:10px; }
+.merch-band { font-size:10px; letter-spacing:0.1em; color:var(--red); text-transform:uppercase; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.merch-name { font-family:var(--font-d); font-size:18px; letter-spacing:0.03em; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.merch-type { font-size:10px; letter-spacing:0.06em; color:var(--dimgray); text-transform:uppercase; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .merch-foot { display:flex; justify-content:space-between; align-items:center; }
 .merch-price { font-family:var(--font-d); font-size:18px; }
 .merch-add { font-family:var(--font-m); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; background:none; border:1px solid #2a2a2a; color:var(--dimgray); padding:6px 10px; cursor:pointer; }
@@ -239,7 +239,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 
 /* ── ABOUT PAGE ── */
 .about-hero { position:relative; width:100%; aspect-ratio:4/5; overflow:hidden; }
-.about-hero img { width:100%; height:100%; object-fit:cover; filter:brightness(0.4) contrast(1.2) grayscale(0.5); }
+.about-hero img { width:100%; height:100%; object-fit:cover; filter:brightness(0.58) contrast(1.1) grayscale(0.3); }
 .about-hero-over { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:20px; background:linear-gradient(to top,rgba(6,6,6,1) 0%,transparent 50%); }
 .about-manifesto { font-family:var(--font-d); font-size:42px; line-height:0.88; }
 .about-manifesto span { color:var(--red); }
@@ -543,7 +543,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
     <div class="page" id="page-merch">
       <div class="pg-head">
         <div class="pg-h1">MERCH<span>.</span></div>
-        <div class="pg-sub">DIY distro — Ships from Tokyo</div>
+        <div class="pg-sub">DIY Distro · Tokyo</div>
       </div>
       <div style="height:16px;"></div>
       <div class="merch-grid">
@@ -707,12 +707,10 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
     <button class="bnav-item" id="bnav-merch" onclick="goPage('merch')">
       <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>Merch
     </button>
-    <button class="bnav-item" id="bnav-about" onclick="goPage('about')">
+    <button class="bnav-item" id="bnav-about" onclick="goPage('about')" title="About & Contact">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>About
     </button>
-    <button class="bnav-item" id="bnav-contact" onclick="goPage('contact')">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Contact
-    </button>
+
   </nav>
 </div>
 
