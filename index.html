@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DISTORT NOISE — iPhone Preview</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0a0a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 40px 20px;
+    gap: 32px;
+  }
+
+  .scene-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  /* ─── iPhone 15 Frame ─── */
+  .iphone {
+    position: relative;
+    width: 393px;
+    height: 852px;
+    background: #1a1a1a;
+    border-radius: 54px;
+    box-shadow:
+      0 0 0 1px #2a2a2a,
+      0 0 0 2px #111,
+      0 0 0 3px #333,
+      0 40px 80px rgba(0,0,0,0.8),
+      0 20px 40px rgba(0,0,0,0.6),
+      inset 0 0 0 1px rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+
+  /* Titanium side sheen */
+  .iphone::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 57px;
+    background: linear-gradient(135deg,
+      #4a4a4a 0%,
+      #2a2a2a 20%,
+      #3a3a3a 40%,
+      #1f1f1f 60%,
+      #3a3a3a 80%,
+      #4a4a4a 100%
+    );
+    z-index: -1;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.08),
+      0 50px 100px rgba(0,0,0,0.9);
+  }
+
+  /* Screen area */
+  .iphone-screen {
+    position: absolute;
+    inset: 4px;
+    border-radius: 50px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  /* App iframe */
+  .iphone-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    border-radius: 50px;
+  }
+
+  /* Dynamic Island */
+  .dynamic-island {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 126px;
+    height: 37px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 10;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+  }
+
+  /* Camera dot */
+  .di-camera {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #0d0d0d;
+    border: 1.5px solid #1a1a1a;
+    position: relative;
+  }
+  .di-camera::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #111;
+  }
+
+  /* Sensor bar */
+  .di-sensor {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #0f2a1a;
+    border: 1px solid #1a2a1f;
+  }
+
+  /* Side buttons */
+  .btn-side {
+    position: absolute;
+    background: #2a2a2a;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  /* Power button (right) */
+  .btn-power {
+    right: -3px;
+    top: 170px;
+    width: 3px;
+    height: 80px;
+  }
+
+  /* Volume up (left) */
+  .btn-vol-up {
+    left: -3px;
+    top: 140px;
+    width: 3px;
+    height: 50px;
+  }
+
+  /* Volume down (left) */
+  .btn-vol-down {
+    left: -3px;
+    top: 205px;
+    width: 3px;
+    height: 50px;
+  }
+
+  /* Silent switch (left) */
+  .btn-mute {
+    left: -3px;
+    top: 95px;
+    width: 3px;
+    height: 32px;
+  }
+
+  /* Bottom bar indicator */
+  .home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 134px;
+    height: 5px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+    z-index: 10;
+  }
+
+  /* Status bar overlay (clock + icons) */
+  .status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 59px;
+    z-index: 9;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 14px;
+    padding-left: 28px;
+    padding-right: 22px;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+
+  .sb-time {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: -0.3px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sb-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-top: 2px;
+  }
+
+  .sb-icons svg {
+    fill: rgba(255,255,255,0.85);
+  }
+
+  /* Scale down on small screens */
+  @media (max-height: 950px) {
+    .iphone {
+      transform: scale(0.88);
+      transform-origin: top center;
+      margin-bottom: -108px;
+    }
+  }
+  @media (max-height: 820px) {
+    .iphone {
+      transform: scale(0.72);
+      transform-origin: top center;
+      margin-bottom: -236px;
+    }
+  }
+  @media (max-width: 440px) {
+    .iphone {
+      transform: scale(0.72);
+      transform-origin: top center;
+      margin-bottom: -236px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <p class="scene-label">DISTORT NOISE · Mobile App</p>
+
+  <div class="iphone">
+    <!-- Side hardware buttons -->
+    <div class="btn-side btn-mute"></div>
+    <div class="btn-side btn-vol-up"></div>
+    <div class="btn-side btn-vol-down"></div>
+    <div class="btn-side btn-power"></div>
+
+    <!-- Screen -->
+    <div class="iphone-screen">
+      <!-- Status bar -->
+      <div class="status-bar">
+        <span class="sb-time">9:41</span>
+        <div class="sb-icons">
+          <!-- Signal -->
+          <svg width="17" height="12" viewBox="0 0 17 12">
+            <rect x="0" y="8" width="3" height="4" rx="1" opacity="1"/>
+            <rect x="4.5" y="5.5" width="3" height="6.5" rx="1" opacity="1"/>
+            <rect x="9" y="3" width="3" height="9" rx="1" opacity="1"/>
+            <rect x="13.5" y="0" width="3" height="12" rx="1" opacity="1"/>
+          </svg>
+          <!-- WiFi -->
+          <svg width="16" height="12" viewBox="0 0 16 12">
+            <path d="M8 9.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
+            <path d="M3.5 6.2C4.9 4.8 6.4 4 8 4s3.1.8 4.5 2.2l1.4-1.5C12.1 3 10.1 2 8 2S3.9 3 2.1 4.7l1.4 1.5z" opacity="0.9"/>
+            <path d="M1 3.5C2.9 1.3 5.3 0 8 0s5.1 1.3 7 3.5L13.6 2C11.9.8 10 0 8 0S4.1.8 2.4 2L1 3.5z" opacity="0.6"/>
+          </svg>
+          <!-- Battery -->
+          <svg width="25" height="12" viewBox="0 0 25 12">
+            <rect x="0" y="1" width="22" height="10" rx="3" stroke="rgba(255,255,255,0.85)" stroke-width="1" fill="none"/>
+            <rect x="22.5" y="3.5" width="2" height="5" rx="1" fill="rgba(255,255,255,0.85)"/>
+            <rect x="1.5" y="2.5" width="17" height="7" rx="2" fill="rgba(255,255,255,0.85)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Dynamic Island -->
+      <div class="dynamic-island">
+        <div class="di-sensor"></div>
+        <div class="di-camera"></div>
+      </div>
+
+      <!-- App content -->
+      <iframe
+        src="distort-noise-mobile.html"
+        title="DISTORT NOISE App"
+        scrolling="no"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- Home indicator -->
+    <div class="home-indicator"></div>
+  </div>
+
+  <p class="scene-label">iPhone 15 · iOS 17</p>
+
+</body>
+</html>
