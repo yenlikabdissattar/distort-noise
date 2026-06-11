@@ -66,10 +66,10 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
   position:relative; z-index:2;
   padding:0 24px 60px;
 }
-.landing-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(237,232,220,0.4); margin-bottom:8px; }
+.landing-label { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(237,232,220,0.4); margin-bottom:8px; }
 .landing-title { font-family:var(--font-d); font-size:72px; line-height:0.88; letter-spacing:0.02em; margin-bottom:4px; }
 .landing-title span { color:var(--red); }
-.landing-sub { font-size:11px; letter-spacing:0.18em; color:rgba(237,232,220,0.4); margin-bottom:32px; text-transform:uppercase; }
+.landing-sub { font-size:9px; letter-spacing:0.18em; color:rgba(237,232,220,0.4); margin-bottom:32px; text-transform:uppercase; }
 .enter-btn {
   display:inline-block; width:100%;
   font-family:var(--font-m); font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
@@ -97,7 +97,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 }
 .topbar-logo { font-family:var(--font-d); font-size:20px; letter-spacing:0.12em; }
 .topbar-logo span { color:var(--red); }
-.topbar-noise { position:absolute; inset:0; width:100%; height:100%; opacity:0.06; pointer-events:none; }
+.topbar-noise { position:absolute; inset:0; width:100%; height:100%; opacity:0.12; pointer-events:none; }
 .topbar-about { font-family:var(--font-m); font-size:8px; letter-spacing:0.16em; text-transform:uppercase; color:var(--dimgray); background:none; border:none; cursor:pointer; position:absolute; right:20px; bottom:14px; }
 .topbar-about:active { color:var(--red); }
 
@@ -127,9 +127,8 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 }
 .bnav-item svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; margin-bottom:4px; }
 .bnav-item.active { color:var(--red); }
-.bnav-item.bnav-featured { background:var(--red); color:var(--offwhite); margin:6px 4px; border-radius:2px; flex:1.4; }
-.bnav-item.bnav-featured.active { color:var(--offwhite); background:#b0100a; }
-.bnav-item.bnav-featured svg { stroke:currentColor; }
+.bnav-item.bnav-featured { color:var(--offwhite); }
+.bnav-item.bnav-featured.active { color:var(--red); }
 
 /* ── PAGES ── */
 .page { display:none; }
@@ -148,7 +147,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
   background:linear-gradient(to top, rgba(6,6,6,1) 0%, rgba(6,6,6,0.2) 50%, transparent 100%);
   display:flex; flex-direction:column; justify-content:flex-end; padding:20px;
 }
-.hero-tag { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(237,232,220,0.45); margin-bottom:6px; }
+.hero-tag { font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(237,232,220,0.45); margin-bottom:6px; }
 .hero-h1 { font-family:var(--font-d); font-size:52px; line-height:0.88; }
 .hero-h1 span { color:var(--red); }
 
@@ -161,7 +160,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 /* SECTION */
 .sec { padding:24px 18px; }
 .sec-head { display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #1a1a1a; padding-bottom:10px; margin-bottom:18px; }
-.sec-label { font-size:8px; letter-spacing:0.12em; text-transform:uppercase; color:var(--dimgray); display:block; margin-bottom:2px; }
+.sec-label { font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--dimgray); display:block; margin-bottom:2px; }
 .sec-title { font-family:var(--font-d); font-size:18px; letter-spacing:0.04em; }
 .sec-more { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); background:none; border:none; font-family:var(--font-m); cursor:pointer; }
 
@@ -183,7 +182,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .band-tile-info { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:12px; background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 60%); }
 .band-tile-num { font-size:8px; letter-spacing:0.1em; color:var(--red); margin-bottom:3px; }
 .band-tile-name { font-family:var(--font-d); font-size:13px; line-height:1; }
-.band-tile-genre { font-size:8px; letter-spacing:0.06em; color:var(--dimgray); margin-top:2px; text-transform:uppercase; }
+.band-tile-genre { font-size:9px; letter-spacing:0.06em; color:var(--dimgray); margin-top:2px; text-transform:uppercase; }
 
 /* ── EVENTS PAGE ── */
 .pg-head { padding:24px 18px 0; }
@@ -222,7 +221,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .band-card-hero-text { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:16px; background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 60%); }
 .bc-num { font-size:8px; letter-spacing:0.1em; color:var(--red); }
 .bc-name { font-family:var(--font-d); font-size:16px; line-height:0.9; }
-.bc-genre { font-size:8px; letter-spacing:0.08em; color:var(--dimgray); margin-top:2px; text-transform:uppercase; }
+.bc-genre { font-size:9px; letter-spacing:0.08em; color:var(--dimgray); margin-top:2px; text-transform:uppercase; }
 .band-card-body { padding:14px 16px; }
 .band-card-desc { font-size:10px; color:#666; line-height:1.8; margin-bottom:12px; }
 .band-card-tags { display:flex; gap:4px; flex-wrap:wrap; }
@@ -237,7 +236,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .merch-body { padding:10px 12px 14px; }
 .merch-band { font-size:8px; letter-spacing:0.1em; color:var(--red); text-transform:uppercase; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .merch-name { font-family:var(--font-d); font-size:16px; letter-spacing:0.03em; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.merch-type { font-size:8px; letter-spacing:0.06em; color:var(--dimgray); text-transform:uppercase; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.merch-type { font-size:9px; letter-spacing:0.06em; color:var(--dimgray); text-transform:uppercase; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .merch-foot { display:flex; justify-content:space-between; align-items:center; }
 .merch-price { font-family:var(--font-d); font-size:16px; }
 .merch-add { font-family:var(--font-m); font-size:8px; letter-spacing:0.08em; text-transform:uppercase; background:none; border:1px solid #2a2a2a; color:var(--dimgray); padding:6px 10px; cursor:pointer; }
@@ -254,7 +253,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin:20px 0; }
 .about-stat { background:#0f0f0f; border:1px solid #1a1a1a; padding:16px; }
 .about-stat-n { font-family:var(--font-d); font-size:28px; color:var(--red); line-height:1; }
-.about-stat-l { font-size:8px; letter-spacing:0.1em; color:var(--dimgray); text-transform:uppercase; margin-top:2px; }
+.about-stat-l { font-size:9px; letter-spacing:0.1em; color:var(--dimgray); text-transform:uppercase; margin-top:2px; }
 .about-list-label { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:10px; margin-top:20px; }
 .about-list { list-style:none; }
 .about-list li { font-size:11px; color:#666; line-height:1.7; border-bottom:1px solid #141414; padding:9px 0; display:flex; gap:10px; }
@@ -285,7 +284,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .pg-footer { padding:20px 18px; border-top:1px solid #141414; display:flex; justify-content:space-between; align-items:center; margin-top:10px; }
 .pg-footer-l { font-family:var(--font-d); font-size:13px; letter-spacing:0.1em; color:#2a2a2a; }
 .pg-footer-l span { color:var(--red); }
-.pg-footer-r { font-size:10px; letter-spacing:0.08em; color:#2a2a2a; text-transform:uppercase; }
+.pg-footer-r { font-size:9px; letter-spacing:0.08em; color:#2a2a2a; text-transform:uppercase; }
 </style>
 </head>
 <body>
@@ -702,7 +701,8 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
   </div><!-- /scroll-area -->
 
   <!-- BOTTOM NAV -->
-  <nav class="bottomnav">
+  <nav class="bottomnav" style="position:relative;">
+    <canvas id="navNoise" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08;pointer-events:none;"></canvas>
     <button class="bnav-item active" id="bnav-home" onclick="goPage('home')">
       <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home
     </button>
@@ -809,6 +809,10 @@ function enterApp() {
 
 // ── TOPBAR NOISE ──
 (function() {
+  // Nav noise
+  const cn = document.getElementById('navNoise');
+  if (cn) { const cx = cn.getContext('2d'); function rn() { cn.width=cn.offsetWidth; cn.height=cn.offsetHeight; } rn(); function tn() { const w=cn.width,h=cn.height,im=cx.createImageData(w,h),d=im.data; for(let i=0;i<d.length;i+=4){const v=Math.random()>0.5?255:0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255;} cx.putImageData(im,0,0); requestAnimationFrame(tn); } tn(); }
+  // Topbar noise
   const c = document.getElementById('topbarNoise');
   if (!c) return;
   const ctx = c.getContext('2d');
