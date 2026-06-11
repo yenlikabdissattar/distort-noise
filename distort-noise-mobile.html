@@ -97,6 +97,9 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 }
 .topbar-logo { font-family:var(--font-d); font-size:20px; letter-spacing:0.12em; }
 .topbar-logo span { color:var(--red); }
+.topbar-noise { position:absolute; inset:0; width:100%; height:100%; opacity:0.06; pointer-events:none; }
+.topbar-about { font-family:var(--font-m); font-size:8px; letter-spacing:0.16em; text-transform:uppercase; color:var(--dimgray); background:none; border:none; cursor:pointer; position:absolute; right:20px; bottom:14px; }
+.topbar-about:active { color:var(--red); }
 
 /* SCROLL AREA */
 .scroll-area {
@@ -124,6 +127,9 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 }
 .bnav-item svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; margin-bottom:4px; }
 .bnav-item.active { color:var(--red); }
+.bnav-item.bnav-featured { background:var(--red); color:var(--offwhite); margin:6px 4px; border-radius:2px; flex:1.4; }
+.bnav-item.bnav-featured.active { color:var(--offwhite); background:#b0100a; }
+.bnav-item.bnav-featured svg { stroke:currentColor; }
 
 /* ── PAGES ── */
 .page { display:none; }
@@ -175,9 +181,9 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .band-tile img { width:100%; height:100%; object-fit:cover; filter:brightness(0.62) contrast(1.1) grayscale(0.25); transition:filter 0.3s; }
 .band-tile:active img { filter:brightness(0.5) contrast(1.2); }
 .band-tile-info { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:12px; background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 60%); }
-.band-tile-num { font-size:10px; letter-spacing:0.1em; color:var(--red); margin-bottom:3px; }
-.band-tile-name { font-family:var(--font-d); font-size:14px; line-height:1; }
-.band-tile-genre { font-size:9px; letter-spacing:0.06em; color:var(--dimgray); margin-top:2px; text-transform:uppercase; }
+.band-tile-num { font-size:8px; letter-spacing:0.1em; color:var(--red); margin-bottom:3px; }
+.band-tile-name { font-family:var(--font-d); font-size:13px; line-height:1; }
+.band-tile-genre { font-size:8px; letter-spacing:0.06em; color:var(--dimgray); margin-top:2px; text-transform:uppercase; }
 
 /* ── EVENTS PAGE ── */
 .pg-head { padding:24px 18px 0; }
@@ -214,11 +220,11 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .band-card-hero { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; }
 .band-card-hero img { width:100%; height:100%; object-fit:cover; filter:brightness(0.62) contrast(1.1) grayscale(0.2); }
 .band-card-hero-text { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:16px; background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 60%); }
-.bc-num { font-size:10px; letter-spacing:0.1em; color:var(--red); }
-.bc-name { font-family:var(--font-d); font-size:18px; line-height:0.9; }
-.bc-genre { font-size:9px; letter-spacing:0.08em; color:var(--dimgray); margin-top:2px; text-transform:uppercase; }
+.bc-num { font-size:8px; letter-spacing:0.1em; color:var(--red); }
+.bc-name { font-family:var(--font-d); font-size:16px; line-height:0.9; }
+.bc-genre { font-size:8px; letter-spacing:0.08em; color:var(--dimgray); margin-top:2px; text-transform:uppercase; }
 .band-card-body { padding:14px 16px; }
-.band-card-desc { font-size:11px; color:#666; line-height:1.8; margin-bottom:12px; }
+.band-card-desc { font-size:10px; color:#666; line-height:1.8; margin-bottom:12px; }
 .band-card-tags { display:flex; gap:4px; flex-wrap:wrap; }
 
 /* release art */
@@ -229,11 +235,11 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 .merch-card { background:var(--gray); overflow:hidden; }
 .merch-img { width:100%; aspect-ratio:1; object-fit:cover; display:block; filter:brightness(0.9); }
 .merch-body { padding:10px 12px 14px; }
-.merch-band { font-size:10px; letter-spacing:0.1em; color:var(--red); text-transform:uppercase; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.merch-name { font-family:var(--font-d); font-size:18px; letter-spacing:0.03em; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.merch-type { font-size:9px; letter-spacing:0.06em; color:var(--dimgray); text-transform:uppercase; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.merch-band { font-size:8px; letter-spacing:0.1em; color:var(--red); text-transform:uppercase; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.merch-name { font-family:var(--font-d); font-size:16px; letter-spacing:0.03em; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.merch-type { font-size:8px; letter-spacing:0.06em; color:var(--dimgray); text-transform:uppercase; margin-bottom:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .merch-foot { display:flex; justify-content:space-between; align-items:center; }
-.merch-price { font-family:var(--font-d); font-size:18px; }
+.merch-price { font-family:var(--font-d); font-size:16px; }
 .merch-add { font-family:var(--font-m); font-size:8px; letter-spacing:0.08em; text-transform:uppercase; background:none; border:1px solid #2a2a2a; color:var(--dimgray); padding:6px 10px; cursor:pointer; }
 .merch-add:active { background:var(--red); border-color:var(--red); color:var(--offwhite); }
 
@@ -306,7 +312,9 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
 <!-- ══════ APP ══════ -->
 <div id="app">
   <div class="topbar">
+    <canvas class="topbar-noise" id="topbarNoise"></canvas>
     <div class="topbar-logo">DISTORT<span>NOISE</span></div>
+    <button class="topbar-about" onclick="goPage('about')">About</button>
   </div>
 
   <div class="scroll-area" id="scrollArea">
@@ -698,7 +706,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
     <button class="bnav-item active" id="bnav-home" onclick="goPage('home')">
       <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>Home
     </button>
-    <button class="bnav-item" id="bnav-events" onclick="goPage('events')">
+    <button class="bnav-item bnav-featured" id="bnav-events" onclick="goPage('events')">
       <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Events
     </button>
     <button class="bnav-item" id="bnav-bands" onclick="goPage('bands')">
@@ -706,9 +714,6 @@ html, body { width:100%; height:100%; overflow:hidden; background:var(--black); 
     </button>
     <button class="bnav-item" id="bnav-merch" onclick="goPage('merch')">
       <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>Merch
-    </button>
-    <button class="bnav-item" id="bnav-about" onclick="goPage('about')">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>About
     </button>
     <button class="bnav-item" id="bnav-contact" onclick="goPage('contact')">
       <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Contact
@@ -800,6 +805,28 @@ function enterApp() {
     requestAnimationFrame(() => { app.style.opacity = '1'; });
   }, 350);
 }
+
+
+// ── TOPBAR NOISE ──
+(function() {
+  const c = document.getElementById('topbarNoise');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  function resize() { c.width = c.offsetWidth; c.height = c.offsetHeight; }
+  resize();
+  function tick() {
+    const w = c.width, h = c.height;
+    const img = ctx.createImageData(w, h);
+    const d = img.data;
+    for (let i = 0; i < d.length; i += 4) {
+      const v = Math.random() > 0.5 ? 255 : 0;
+      d[i] = d[i+1] = d[i+2] = v; d[i+3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
 
 function goPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
